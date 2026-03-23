@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Project } from "./types/Project";
 
-function ProjectList() {
+function ProjectList({ selectedCategories }: { selectedCategories: string[] }) {
 
     const [projects, setProjects] = useState<Project[]>([]);
     const [pageSize, setPageSize] = useState<number>(5);
@@ -11,19 +11,21 @@ function ProjectList() {
 
     useEffect(() => {
         const fetchProjects = async () => {
-            const response = await fetch(`https://localhost:5000/Water/AllProjects?pageSize=${pageSize}&pageNum=${pageNum}`);
+
+            const categoryParams = selectedCategories.map(cat => `projectTypes=${encodeURIComponent(cat)}`).join('&');
+
+            const response = await fetch(`https://localhost:5000/Water/AllProjects?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ''}`);
             const data = await response.json();
             setProjects(data.projects);
             setTotalItems(data.totalNumProjects);
             setTotalPages(Math.ceil(data.totalNumProjects / pageSize));
         }
         fetchProjects();
-    }, [pageSize, pageNum, totalItems]);
+    }, [pageSize, pageNum, totalItems, selectedCategories]);
 
     return (
         <>
-            <h1>Water Projects</h1>
-            <br />
+
             {projects.map((p) => (
                 <div id="projectCard" className="card" key={p.projectId}>
                     <h3 className="card-title">{p.projectName}</h3>
