@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+
 namespace WaterProject.API.Data
 {
     public class WaterDbContext : DbContext
@@ -9,6 +10,6 @@ namespace WaterProject.API.Data
 
         }
 
-        public DbSet<Projects> Projects { get; set; }
+        public DbSet<Project> Projects { get; set; }
     }
 }

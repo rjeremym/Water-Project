@@ -2,7 +2,7 @@
 
 namespace WaterProject.API.Data
 {
-    public class Projects
+    public class Project
     {
         [Key]
         public int ProjectId { get; set; }
