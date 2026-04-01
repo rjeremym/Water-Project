@@ -3,7 +3,6 @@ import type { Project } from "../types/Project";
 import { deleteProject, fetchProjects } from "../api/ProjectAPI";
 import Pagination from "../components/Pagination";
 import NewProjectForm from "../components/NewProjectForm";
-import { data } from "react-router-dom";
 import EditProjectForm from "../components/EditProjectForm";
 
 const AdminProjectsPage = () => {
