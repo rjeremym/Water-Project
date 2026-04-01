@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c3f01d96-f9c1-4e29-8a61-2bff2e7cfd05/resourceGroups/appsvc_windows_eastus/providers/Microsoft.Web/sites/WaterProject-Richards-Backend",
+    "appService.deploySubpath": "backend\\WaterProject.API\\publish"
+}
