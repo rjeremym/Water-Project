@@ -8,7 +8,7 @@ function CategoryFilter({ selectedCategories, setSelectedCategories }: { selecte
         useEffect(() => {
             const fetchCategories = async () => {
                 try {
-                    const response = await fetch(`https://localhost:5000/Water/GetProjectTypes`);
+                    const response = await fetch(`https://waterproject-richards-backend-fjb9fmbbesfzcfaa.eastus-01.azurewebsites.net/Water/GetProjectTypes`);
                     const data = await response.json();
                     setCategories(data);
                 } catch (error) {
